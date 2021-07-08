@@ -11,6 +11,7 @@ import Buttons from './Buttons'
 import Picture from './Picture'
 import Carousel from './Carousel'
 import QuickReplies from './QuickReplies'
+import PictureUpload from './PictureUpload'
 
 import './style.scss'
 
@@ -38,6 +39,7 @@ class Message extends Component {
       case 'quickreplies':
       case 'quickreply':
       case 'button':
+      case 'custom':
         return true
       case 'client_data':
         return false
@@ -132,6 +134,8 @@ class Message extends Component {
           {(type === 'text' || type === 'action') && <Text {...messageProps} />}
 
           {type === 'picture' && <Picture {...messageProps} />}
+
+          {type === 'custom' && <PictureUpload {...messageProps} sendMessage={sendMessage} />}
 
           {type === 'card' && <Card {...messageProps} sendMessage={sendMessage} />}
 

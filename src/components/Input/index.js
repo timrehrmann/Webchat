@@ -8,6 +8,7 @@ import { safeArrayOfItem } from 'helpers'
 import Menu from 'components/Menu'
 import MenuSVG from 'components/svgs/menu'
 import './style.scss'
+import UploadButton from '../UploadButton'
 
 // Number of minimum char to display the char limit.
 const NUMBER_BEFORE_LIMIT = 5
@@ -128,6 +129,12 @@ class Input extends Component {
         }
       })
     }
+  }
+
+  onImageInput = (event) => {
+    const image = event.target.files[0]
+    console.log('Bild')
+    // TODO fetch(TS API)
   }
 
   autoGrow = () => {
@@ -255,6 +262,12 @@ class Input extends Component {
           }}
           rows={1}
         />
+        {/*
+        <UploadButton
+          preferences={preferences}
+          onUpload={this.onImageInput}
+          value={'red'}
+        /> */}
 
         <SendButton
           preferences={preferences}
